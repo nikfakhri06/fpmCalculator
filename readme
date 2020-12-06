@@ -1,0 +1,3 @@
+Title: FPM Calculator
+
+Description: To calculate the amount of flashes per minute for a flashing light source based on only 4 flashes. This only works on red light frequency. If want to change the colour frequency, can learn about the RGB sensor and adjust appropriately.
