@@ -17,7 +17,8 @@ unsigned long start,start1,start2,start3,start4,finish,k;
 LiquidCrystal_I2C lcd(0x27, 16, 2);
 
 void setup() {
-  
+
+  //Setup for RGB Color Sensor
   pinMode(s0, OUTPUT);
   pinMode(s1, OUTPUT);
   pinMode(s2, OUTPUT);
@@ -34,6 +35,8 @@ void setup() {
   lcd.backlight();
   lcd.setCursor(1,0);
   lcd.print("FPM Calculator");
+  lcd.setCursor(0,1);
+  lcd.print("4 Flashes needed");
   delay(1000);
   
    
@@ -51,37 +54,46 @@ void loop()
     redFrequency = pulseIn(outPin, LOW); //read output
     // Remaping the value of red from 0 to 255, to show in hex codes
     redColor = map(redFrequency, 3, 30, 255,0);
-    //delay(1000);
+//    Serial.println(redColor);
 
     for (i = 0; i < 1; i++)
    {
-    if (redColor > 200 && redColor < 255 && count < 1)
+    if (redColor > 100 && redColor < 300 && count < 1)
     {
       start1 = millis();
       Serial.println(start1);
       delay(1000); //need to change based on duration of flashing
       count++;
-      Serial.println(count); 
+//      Serial.println(count);
+      lcd.clear();
+      lcd.setCursor(3,0);
+      lcd.print("Flash = 1");
     }
-    else if (redColor > 200 && redColor < 255 && count < 2)
+    else if (redColor > 100 && redColor < 300 && count < 2)
         {
           delay(1000); //need to change based on duration of flashing
           count++;
-          Serial.println(count);      
+//          Serial.println(count); 
+          lcd.clear();
+          lcd.print("Flash = 2");     
          }
-     else if (redColor > 200 && redColor < 255 && count < 3)
+     else if (redColor > 100 && redColor < 300 && count < 3)
             {
               delay(1000); //need to change based on duration of flashing
               count++;
-              Serial.println(count);      
+//              Serial.println(count);   
+              lcd.clear();
+              lcd.print("Flash = 3");   
              }
-      else if (redColor > 200 && redColor < 255 && count < 4)
+      else if (redColor > 100 && redColor < 300 && count < 4)
                   {
                     start4 = millis();
                     Serial.println(start4);
                     delay(1000); //need to change based on duration of flashing
                     count++;
-                    Serial.println(count);
+//                    Serial.println(count);
+                    lcd.clear();
+                    lcd.print("Flash = 4");
               
                     if(count == 4)
                     {
@@ -98,8 +110,10 @@ void loop()
                      lcd.setCursor(3,0);
                      lcd.print(bpm);
                      lcd.print(" FPM!");
+                     lcd.setCursor(1,1);
+                     lcd.print("Push to reset");
                      
-//                     count=0;
+                     count=0;
                     }
                    }
     }
