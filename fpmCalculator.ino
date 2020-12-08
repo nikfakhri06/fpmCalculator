@@ -62,7 +62,7 @@ void loop()
     {
       start1 = millis();
       Serial.println(start1);
-      delay(1000); //need to change based on duration of flashing
+      delay(1500); //need to change based on duration of flashing
       count++;
 //      Serial.println(count);
       lcd.clear();
@@ -71,29 +71,29 @@ void loop()
     }
     else if (redColor > 100 && redColor < 300 && count < 2)
         {
-          delay(1000); //need to change based on duration of flashing
+          delay(1500); //need to change based on duration of flashing
           count++;
 //          Serial.println(count); 
           lcd.clear();
+          lcd.setCursor(3,0);
           lcd.print("Flash = 2");     
          }
      else if (redColor > 100 && redColor < 300 && count < 3)
             {
-              delay(1000); //need to change based on duration of flashing
+              delay(1500); //need to change based on duration of flashing
               count++;
 //              Serial.println(count);   
               lcd.clear();
+              lcd.setCursor(3,0);
               lcd.print("Flash = 3");   
              }
       else if (redColor > 100 && redColor < 300 && count < 4)
                   {
                     start4 = millis();
                     Serial.println(start4);
-                    delay(1000); //need to change based on duration of flashing
+                    delay(1500); //need to change based on duration of flashing
                     count++;
-//                    Serial.println(count);
-                    lcd.clear();
-                    lcd.print("Flash = 4");
+
               
                     if(count == 4)
                     {
@@ -110,10 +110,7 @@ void loop()
                      lcd.setCursor(3,0);
                      lcd.print(bpm);
                      lcd.print(" FPM!");
-                     lcd.setCursor(1,1);
-                     lcd.print("Push to reset");
-                     
-                     count=0;
+//                     count=0;
                     }
                    }
     }
