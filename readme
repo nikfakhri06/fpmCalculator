@@ -1,7 +1,12 @@
 Title: FPM Calculator
 
 Description: 
-To calculate the amount of flashes per minute for a flashing light source based on only 4 flashes. This only works on red light frequency. If want to change the colour frequency, can learn about the RGB sensor and adjust appropriately.
+To calculate the amount of flashes per minute for a flashing light source based on only 4 flashes. This only works on red light frequency. 
+If want to change the colour frequency, can learn about the RGB sensor and adjust appropriately.
+
+Software used:
+Arduino 1.8.13 or newer
+Liquid Crystal LCD1602 library (please search online)
 
 Usage:
 The device will be able to detect flashes from 5-10 cm away.
